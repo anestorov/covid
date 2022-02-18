@@ -1,7 +1,7 @@
 <template>
     <div id="app">
         <b-jumbotron
-            header="Обективен ваксинационен калкулатор за COVID-19"
+            header=""
             lead
             fluid
             class="mb-0"
@@ -25,7 +25,7 @@
                                 <b-form-radio-group
                                     required
                                     v-model="selected[0]"
-                                    :options="[{value:0, text:'5 - 18г.'}, {value:1, text:'Над 18г.'}]"
+                                    :options="[{value:0, text:'5 - 11г.'}, {value:1, text: '12 - 17г.'}, {value:2, text:'Над 18г.'}]"
                                 ></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -53,7 +53,7 @@
                             <b-form-select
                                 :select-size="6"
                                 v-model="selected[2]"
-                                :options="[{value: 0, text:'Не'}, {value:1, text:'Нисък (20 случаи/ден)'}, {value:2, text:'Умерен (200 случаи/ден)'}, {value:3, text:'Висок (2500 случаи/ден)'}, {value:4, text:'Много висок (6800 случаи/ден)'}, {value:5, text:'Екстремно висок (13600 случаи/ден)'}]"
+                                :options="[{value: 0, text:'Липсват данни'}, {value:1, text:'Нисък (20 случаи/ден)'}, {value:2, text:'Умерен (200 случаи/ден)'}, {value:3, text:'Висок (2500 случаи/ден)'}, {value:4, text:'Много висок (6800 случаи/ден)'}, {value:5, text:'Екстремно висок (13600 случаи/ден)'}]"
                             ></b-form-select>
                         </b-col>
                     </b-row>
@@ -81,7 +81,7 @@
                             <b-form-select
                                 :select-size="5"
                                 v-model="selected[4]"
-                                :options="[{value:0, text:'Не'}, {value:1, text:'Компенсиран тип 1 диабет (HBA1C <6.5%)'}, {value:2, text:'Декомпенсиран тип 1 диабет (HBA1C >7.5%)'}, {value:3, text:'Компенсиран тип 2 диабет (HBA1C <6.5%)'}, {value:4, text:'Декомпенсиран тип 2 диабет (HBA1C >7.5%)'}]"
+                                :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Компенсиран тип 1 диабет (HBA1C <6.5%)'}, {value:2, text:'Декомпенсиран тип 1 диабет (HBA1C >7.5%)'}, {value:3, text:'Компенсиран тип 2 диабет (HBA1C <6.5%)'}, {value:4, text:'Декомпенсиран тип 2 диабет (HBA1C >7.5%)'}]"
                             ></b-form-select>
                         </b-col>
                     </b-row>
@@ -94,7 +94,7 @@
                             <b-form-select
                                 :select-size="6"
                                 v-model="selected[5]"
-                                :options="[{value:0, text:'Не'}, {value:1, text:'Стадий I (GFR > 90 mL/min)'}, {value:2, text:'Стадий II (GFR 60-89 mL/min)'}, {value:3, text:'Стадий III (GFR 30-59 mL/min)'}, {value:4, text:'Стадий IV (GFR 15-29 mL/min)'}, {value:5, text: 'Стадий V (GFR < 15 mL/min)'}]"
+                                :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Стадий I (GFR > 90 mL/min)'}, {value:2, text:'Стадий II (GFR 60-89 mL/min)'}, {value:3, text:'Стадий III (GFR 30-59 mL/min)'}, {value:4, text:'Стадий IV (GFR 15-29 mL/min)'}, {value:5, text: 'Стадий V (GFR < 15 mL/min)'}]"
                             ></b-form-select>
                         </b-col>
                     </b-row>
@@ -107,7 +107,7 @@
                             <b-form-select
                                 :select-size="4"
                                 v-model="selected[6]"
-                                :options="[{value:0, text:'Не'}, {value:1, text:'Солидно заболяване'}, {value:2, text:'Хематологично заболяване'}, {value:3, text:'Матестазирало заболяване'}]"
+                                :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Солидно заболяване'}, {value:2, text:'Хематологично заболяване'}, {value:3, text:'Матестазирало заболяване'}]"
                             ></b-form-select>
                         </b-col>
                     </b-row>
@@ -120,7 +120,7 @@
                             <b-form-group>
                                 <b-form-radio-group
                                     v-model="selected[7]"
-                                    :options="[{value:0, text:'Не'}, {value:1, text:'Ремисия'}, {value:2, text:'Активно'}]"
+                                    :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Ремисия'}, {value:2, text:'Активно'}]"
                                 ></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -134,7 +134,7 @@
                             <b-form-group>
                                 <b-form-radio-group
                                     v-model="selected[8]"
-                                    :options="[{value:0, text:'Не'}, {value:1, text:'Бронхиална астма (независимо от стадий)'}, {value:2, text:'Хроничен бронхит'}, {value:3, text:'Емфизем'}]"
+                                    :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Бронхиална астма (независимо от стадий)'}, {value:2, text:'Хроничен бронхит'}, {value:3, text:'Емфизем'}]"
                                 ></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -148,7 +148,7 @@
                             <b-form-select
                                 :select-size="8"
                                 v-model="selected[9]"
-                                :options="[{value:0, text:'Не'}, {value:1, text:'Вродени сърдечни заболявания'}, {value:2, text:'Коронарна болест'}, {value:3, text:'Преживял инсулт или транзирторна исхемична атака'}, {value: 4, text:'Предсърдно мъждене'}, {value:5, text:'Сърдечна недостатъчност (независимо от стадий)'}, {value:6, text:'Периферна съдова болест (независимо от стадий)'}, {value:7, text:'Преживял тромбоза или БТЕ'}]"
+                                :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Вродени сърдечни заболявания'}, {value:2, text:'Коронарна болест'}, {value:3, text:'Преживял инсулт или транзирторна исхемична атака'}, {value: 4, text:'Предсърдно мъждене'}, {value:5, text:'Сърдечна недостатъчност (независимо от стадий)'}, {value:6, text:'Периферна съдова болест (независимо от стадий)'}, {value:7, text:'Преживял тромбоза или БТЕ'}]"
                             ></b-form-select>
                         </b-col>
                     </b-row>
@@ -161,7 +161,7 @@
                             <b-form-select
                                 :select-size="5"
                                 v-model="selected[10]"
-                                :options="[{value:0, text:'Не'}, {value:1, text:'Болест на Паркинсон'}, {value:2, text:'Епилепсия'}, {value:3, text:'Болест на моторните неврони, множественна склероза, миастания или болест на Хънтингтън'}, {value: 4, text:'Детска церебрална пареза (ДЦП)'}]"
+                                :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Болест на Паркинсон'}, {value:2, text:'Епилепсия'}, {value:3, text:'Болест на моторните неврони, множественна склероза, миастания или болест на Хънтингтън'}, {value: 4, text:'Детска церебрална пареза (ДЦП)'}]"
                             ></b-form-select>
                         </b-col>
                     </b-row>
@@ -174,7 +174,7 @@
                             <b-form-group>
                                 <b-form-radio-group
                                     v-model="selected[11]"
-                                    :options="[{value:0, text:'Не'}, {value:1, text:'Биполярно афективно разстройство'}, {value:2, text:'Шизофрения'}, {value:3, text:'Деменция'}]"
+                                    :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Биполярно афективно разстройство'}, {value:2, text:'Шизофрения'}, {value:3, text:'Деменция'}]"
                                 ></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -188,7 +188,7 @@
                             <b-form-group>
                                 <b-form-radio-group
                                     v-model="selected[12]"
-                                    :options="[{value:0, text:'Не'}, {value:1, text:'Клетъчен'}, {value:2, text:'Хомурален'}, {value:3, text:'Смесен'}]"
+                                    :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Клетъчен'}, {value:2, text:'Хомурален'}, {value:3, text:'Смесен'}]"
                                 ></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -202,7 +202,7 @@
                             <b-form-group>
                                 <b-form-radio-group
                                     v-model="selected[13]"
-                                    :options="[{value:0, text:'Не'}, {value:1, text:'Медикаменти група А'}, {value:2, text:'Медикаменти група B'}, {value:3, text:'Медикаменти група C'}]"
+                                    :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Медикаменти група А'}, {value:2, text:'Медикаменти група B'}, {value:3, text:'Медикаменти група C'}]"
                                 ></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -216,7 +216,7 @@
                             <b-form-group>
                                 <b-form-radio-group
                                     v-model="selected[14]"
-                                    :options="[{value:0, text:'Не'}, {value:1, text:'НСПВС'}, {value:2, text:'Стероиди'}, {value:3, text:'Антиревматични лекарства (DMARDs)'}, {value:4, text:'Биологични агенти'}]"
+                                    :options="[{value:0, text:'Липсват данни'}, {value:1, text:'НСПВС'}, {value:2, text:'Стероиди'}, {value:3, text:'Антиревматични лекарства (DMARDs)'}, {value:4, text:'Биологични агенти'}]"
                                 ></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -230,7 +230,7 @@
                             <b-form-group>
                                 <b-form-radio-group
                                     v-model="selected[15]"
-                                    :options="[{value:0, text:'Не'}, {value:1, text:'Хепатит B'}, {value:2, text:'Хепатит C'}, {value:3, text:'HIV'}, {value:4, text:'Туберкулоза'}]"
+                                    :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Хепатит B'}, {value:2, text:'Хепатит C'}, {value:3, text:'HIV'}, {value:4, text:'Туберкулоза'}]"
                                 ></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -244,7 +244,7 @@
                             <b-form-select
                                 :select-size="5"
                                 v-model="selected[16]"
-                                :options="[{value:0, text:'Не'}, {value:1, text:'Child-Pugh клас A'}, {value:2, text:'Child-Pugh клас B'}, {value:3, text:'Child-Pugh клас C'}, {value: 4, text:'След чернодробна трансплантация'}]"
+                                :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Child-Pugh клас A'}, {value:2, text:'Child-Pugh клас B'}, {value:3, text:'Child-Pugh клас C'}, {value: 4, text:'След чернодробна трансплантация'}]"
                             ></b-form-select>
                         </b-col>
                     </b-row>
@@ -257,7 +257,7 @@
                             <b-form-group>
                                 <b-form-radio-group
                                     v-model="selected[17]"
-                                    :options="[{value:0, text:'Не'}, {value:1, text:'Има данни за такава'}]"
+                                    :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Има данни за такава'}]"
                                 ></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -271,7 +271,7 @@
                             <b-form-group>
                                 <b-form-radio-group
                                     v-model="selected[18]"
-                                    :options="[{value:0, text:'Не'}, {value:1, text:'Има данни за такава'}]"
+                                    :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Има данни за такава'}]"
                                 ></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -285,7 +285,7 @@
                             <b-form-group>
                                 <b-form-radio-group
                                     v-model="selected[19]"
-                                    :options="[{value:0, text:'Не'}, {value:1, text:'Планирана бременост'}, {value:2, text:'<20-та гестационна седмица'},{value:3, text:'>20-та гестационна седмица'}]"
+                                    :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Планирана бременост'}, {value:2, text:'<20-та гестационна седмица'},{value:3, text:'>20-та гестационна седмица'}]"
                                 ></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -299,7 +299,7 @@
                             <b-form-group>
                                 <b-form-radio-group
                                     v-model="selected[20]"
-                                    :options="[{value:0, text:'Не'}, {value:1, text: 'Жената кърми'}]"
+                                    :options="[{value:0, text:'Липсват данни'}, {value:1, text: 'Жената кърми'}]"
                                 ></b-form-radio-group>
                             </b-form-group>
                         </b-col>
@@ -313,7 +313,7 @@
                             <b-form-select
                                 :select-size="6"
                                 v-model="selected[21]"
-                                :options="[{value:0, text:'Не'}, {value:1, text:'Към типичните алергени'}, {value:2, text:'Към други ваксини; леки-умерени'}, {value:3, text:'Към други ваксини; тежки'}, {value: 4, text:'Към съставките на К-19 ваксина; леки-умерени след първа доза'}, {value:5, text:'Към съставките на К-19 ваксина; тежки/анафилаксия  след първа доза'}]"
+                                :options="[{value:0, text:'Липсват данни'}, {value:1, text:'Към типичните алергени'}, {value:2, text:'Към други ваксини; леки-умерени'}, {value:3, text:'Към други ваксини; тежки'}, {value: 4, text:'Към съставките на К-19 ваксина; леки-умерени след първа доза'}, {value:5, text:'Към съставките на К-19 ваксина; тежки/анафилаксия  след първа доза'}]"
                             ></b-form-select>
                         </b-col>
                     </b-row>
@@ -321,9 +321,25 @@
                     <b-row class="pt-5">
                         <b-col cols="12" class="text-center">
                             <b-button size="lg" variant="info" type="submit">Изчисли</b-button>
+                            <b-button size="lg" class="ml-4" @click="Reset()">Изчисти</b-button>
                         </b-col>
                     </b-row>
                 </b-form>
+            </b-card>
+
+            <b-card class="mt-5">
+                <b-card-title>Библиография</b-card-title>
+                <b-card-text>
+                    <ol>
+                        <li><a href="https://coronavirus.bg/bg/vaccinations/" target="_blank">https://coronavirus.bg/bg/vaccinations/</a></li>
+                        <li><a href="https://www.cdc.gov/vaccines/covid-19/" target="_blank">https://www.cdc.gov/vaccines/covid-19/</a></li>
+                        <li><a href="https://esmo.org/covid-19-and-cancer/covid-19-vaccination" target="_blank">https://esmo.org/covid-19-and-cancer/covid-19-vaccination</a></li>
+                        <li><a href="https://eular.org/eular_sars_cov_2_vaccination_rmd_patients.cfm" target="_blank">https://eular.org/eular_sars_cov_2_vaccination_rmd_patients.cfm</a></li>
+                        <li><a href="https://www.escardio.org/Education/COVID-19-and-Cardiology" target="_blank">https://escardio.org/Education/COVID-19-and-Cardiology</a></li>
+                        <li><a href="https://n.neurology.org/content/97/15/720" target="_blank">https://n.neurology.org/content/97/15/720</a></li>
+                        <li><a href="https://ejog.org/article/S0301-2115(21)00244-X/fulltext" target="_blank">https://ejog.org/article/S0301-2115(21)00244-X/fulltext</a></li>
+                    </ol>
+                </b-card-text>
             </b-card>
 
             <b-modal
@@ -374,7 +390,7 @@ export default {
             selected: JSON.parse(JSON.stringify(selection)),
             map: {
                 //question no: {selection: outcome ...}
-                0: { 0: 1, 1: 0 },
+                0: { 0: 1, 1: 1, 2: 0 },
                 1: { 0: 0, 1: 0 },
                 2: { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
                 3: { 0: 0, 1: 0, 2: 0 },
@@ -400,7 +416,7 @@ export default {
             score: 0,
             outcomes: {
                 0: "Лицето може да бъде ваксинирано, с която и да е oдобрена от ИАЛ ваксина, следвайки стандартните ваксинационни срокове.",
-                1: "Препоръчително е лицето да бъде ваксинирано с mRNA ваксина, следвайки стандартните ваксинационни срокове.",
+                1: "Препоръчително е лицето да бъде ваксинирано с mRNA ваксина, следвайки стандартните ваксинационни срокове. При индивиди на 5-11 годишна възраст 10μg/доза, а при индивиди на 11-17 годишна възраст 30μg/доза.",
                 2: "Препоръчително е лицето да бъде ваксинирано с mRNA ваксина, включваща и трета доза, поставена 28 дни след втората ± четвърта доза, поставена до 6 месеца след третата (при умерен-тежък имунен дефицит).",
                 3: "Лицето може да бъде ваксинирано след консултация и съгласие от алерголог; активно наблюдение до 30 минути след ваксинацията.",
                 4: "За момента НЕ СЕ препоръчва ваксинация с ваксината, на която съставки са показали алергична реакция при пациента след първото ѝ прилагане. Препоръчва се консултация с алерголог и преценка за риск/полза от ваксинация.",
@@ -429,11 +445,9 @@ export default {
             this.outcome = this.outcomes[this.score];
             this.modal = true;
         },
-    },
-    watch: {
-        modal(n) {
-            if (n === false) this.selected = JSON.parse(JSON.stringify(selection));
-        },
+        Reset() {
+            this.selected = JSON.parse(JSON.stringify(selection));
+        }
     },
 };
 </script>
@@ -441,6 +455,10 @@ export default {
 <style scoped>
 label {
     font-weight: bold;
+}
+.jumbotron {
+    background: url("assets/bg.png") no-repeat center center;
+    background-size: cover;
 }
 </style>
 
