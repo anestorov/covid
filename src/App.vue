@@ -9,7 +9,6 @@
             text-variant="white"
             header-tag="H3"
             header-level="5"
-            style="height:150px"
         >
         </b-jumbotron>
 
@@ -458,7 +457,8 @@ label {
 }
 .jumbotron {
     background: url("assets/bg.png") no-repeat center center;
-    background-size: cover;
+    background-size: 100% 140%;
+    max-height: 150px;
 }
 </style>
 
