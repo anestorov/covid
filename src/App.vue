@@ -1,16 +1,7 @@
 <template>
     <div id="app">
-        <b-jumbotron
-            header=""
-            lead
-            fluid
-            class="mb-0"
-            bg-variant="info"
-            text-variant="white"
-            header-tag="H3"
-            header-level="5"
-        >
-        </b-jumbotron>
+     
+        <b-img :src="require('./assets/bg.png')" style="width:100%"></b-img>
 
         <b-container fluid class="mt-3">
             <b-card>
@@ -498,7 +489,8 @@ label {
 .jumbotron {
     background: url("assets/bg.png") no-repeat center center;
     background-size: 100% 100%;
-    max-height: 150px;
+    max-height: 300px;
+    height: 300px;
 }
 select option:checked {
     background: #c0ecfa;
@@ -509,5 +501,8 @@ select option:checked {
     }
 }
 html { scroll-behavior: smooth; } 
+.my-1 {
+    padding-bottom: 15px;
+}
 </style>
 
