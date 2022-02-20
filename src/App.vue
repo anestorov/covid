@@ -6,15 +6,14 @@
         <b-container fluid class="mt-3">
             <b-card>
                 <b-form @submit="Calculate">
-                    <b-row class="my-1">
+                    <b-row class="my-1" id="field0">
                         <b-col sm="4">
-                            <label for="field0" :style="{color:states[0]===false?'red':null}">Възръст:</label>
+                            <label :style="{color:states[0]===false?'red':null}">Възръст:</label>
                         </b-col>
                         <b-col sm="8">
                             <b-form-group>
                                 <b-form-radio-group
                                     :style="{color:states[0]===false?'red':null}"
-                                    id="field0"
                                     :state="states[0]"
                                     v-model="selected[0]"
                                     :options="[{value:0, text:'5 - 11г.'}, {value:1, text: '12 - 17г.'}, {value:2, text:'Над 18г.'}]"
@@ -23,14 +22,13 @@
                             </b-form-group>
                         </b-col>
                     </b-row>
-                    <b-row class="my-1">
+                    <b-row class="my-1" id="field1">
                         <b-col sm="4">
-                            <label for="field1" :style="{color:states[1]===false?'red':null}">Пол:</label>
+                            <label :style="{color:states[1]===false?'red':null}">Пол:</label>
                         </b-col>
                         <b-col sm="8">
                             <b-form-group>
                                 <b-form-radio-group
-                                    id="field1"
                                     :style="{color:states[1]===false?'red':null}"
                                     v-model="selected[1]"
                                     :options="[{value:0, text:'Мъж'}, {value:1, text:'Жена'}]"
@@ -40,13 +38,12 @@
                         </b-col>
                     </b-row>
 
-                    <b-row class="my-1">
+                    <b-row class="my-1" id="field2">
                         <b-col sm="4">
                             <label>Обществен риск:</label>
                         </b-col>
                         <b-col sm="8">
                             <b-form-select
-                                id="field2"
                                 :select-size="6"
                                 v-model="selected[2]"
                                 :options="[{value: 0, text:'Липсват данни'}, {value:1, text:'Нисък (20 случаи/ден)'}, {value:2, text:'Умерен (200 случаи/ден)'}, {value:3, text:'Висок (2500 случаи/ден)'}, {value:4, text:'Много висок (6800 случаи/ден)'}, {value:5, text:'Екстремно висок (13600 случаи/ден)'}]"
@@ -54,14 +51,13 @@
                         </b-col>
                     </b-row>
 
-                    <b-row class="my-1">
+                    <b-row class="my-1" id="field3">
                         <b-col sm="4">
-                            <label for="field3" :style="{color:states[3]===false?'red':null}">BMI:</label>
+                            <label :style="{color:states[3]===false?'red':null}">BMI:</label>
                         </b-col>
                         <b-col sm="8">
                             <b-form-group>
                                 <b-form-radio-group
-                                    id="field3"
                                     :style="{color:states[3]===false?'red':null}"
                                     v-model="selected[3]"
                                     :options="[{value:0, text:'<18.5'}, {value:1, text:'18.5 - 30'}, {value:2, text:'>30'}]"
