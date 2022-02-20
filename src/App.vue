@@ -17,31 +17,34 @@
                 <b-form @submit="Calculate">
                     <b-row class="my-1">
                         <b-col sm="4">
-                            <label>Възръст:</label>
+                            <label for="field0" :style="{color:states[0]===false?'red':null}">Възръст:</label>
                         </b-col>
                         <b-col sm="8">
                             <b-form-group>
                                 <b-form-radio-group
-                                    required
+                                    :style="{color:states[0]===false?'red':null}"
+                                    id="field0"
+                                    :state="states[0]"
                                     v-model="selected[0]"
                                     :options="[{value:0, text:'5 - 11г.'}, {value:1, text: '12 - 17г.'}, {value:2, text:'Над 18г.'}]"
                                 ></b-form-radio-group>
-                                <b-form-invalid-feedback :state="selected[0] != null">Изберете опция</b-form-invalid-feedback>
+                                <b-form-invalid-feedback :state="states[0]">Изберете опция</b-form-invalid-feedback>
                             </b-form-group>
                         </b-col>
                     </b-row>
                     <b-row class="my-1">
                         <b-col sm="4">
-                            <label>Пол:</label>
+                            <label for="field1" :style="{color:states[1]===false?'red':null}">Пол:</label>
                         </b-col>
                         <b-col sm="8">
                             <b-form-group>
                                 <b-form-radio-group
-                                    required
+                                    id="field1"
+                                    :style="{color:states[1]===false?'red':null}"
                                     v-model="selected[1]"
                                     :options="[{value:0, text:'Мъж'}, {value:1, text:'Жена'}]"
                                 ></b-form-radio-group>
-                                <b-form-invalid-feedback :state="selected[1] != null">Изберете опция</b-form-invalid-feedback>
+                                <b-form-invalid-feedback :state="states[1]">Изберете опция</b-form-invalid-feedback>
                             </b-form-group>
                         </b-col>
                     </b-row>
@@ -52,6 +55,7 @@
                         </b-col>
                         <b-col sm="8">
                             <b-form-select
+                                id="field2"
                                 :select-size="6"
                                 v-model="selected[2]"
                                 :options="[{value: 0, text:'Липсват данни'}, {value:1, text:'Нисък (20 случаи/ден)'}, {value:2, text:'Умерен (200 случаи/ден)'}, {value:3, text:'Висок (2500 случаи/ден)'}, {value:4, text:'Много висок (6800 случаи/ден)'}, {value:5, text:'Екстремно висок (13600 случаи/ден)'}]"
@@ -61,16 +65,17 @@
 
                     <b-row class="my-1">
                         <b-col sm="4">
-                            <label>BMI:</label>
+                            <label for="field3" :style="{color:states[3]===false?'red':null}">BMI:</label>
                         </b-col>
                         <b-col sm="8">
                             <b-form-group>
                                 <b-form-radio-group
-                                    required
+                                    id="field3"
+                                    :style="{color:states[3]===false?'red':null}"
                                     v-model="selected[3]"
                                     :options="[{value:0, text:'<18.5'}, {value:1, text:'18.5 - 30'}, {value:2, text:'>30'}]"
                                 ></b-form-radio-group>
-                                <b-form-invalid-feedback :state="selected[3] != null">Изберете опция</b-form-invalid-feedback>
+                                <b-form-invalid-feedback :state="states[3]">Изберете опция</b-form-invalid-feedback>
                             </b-form-group>
                         </b-col>
                     </b-row>
@@ -416,6 +421,7 @@ export default {
                 21: { 0: 0, 1: 0, 2: 0, 3: 3, 4: 3, 5: 4 },
             },
             score: 0,
+            states: {0:true,1:true,2:true,3:true,4:true,},
             outcomes: {
                 0: "Лицето може да бъде ваксинирано, с която и да е oдобрена от ИАЛ ваксина, следвайки стандартните ваксинационни срокове.",
                 1: "Препоръчително е лицето да бъде ваксинирано с mRNA ваксина, следвайки стандартните ваксинационни срокове. При индивиди на 5-11 годишна възраст 10μg/доза, а при индивиди на 11-17 годишна възраст 30μg/доза.",
@@ -431,6 +437,10 @@ export default {
     methods: {
         Calculate(event) {
             event.preventDefault();
+            event.stopPropagation();
+
+            if(!this.validate()) return;
+
             this.score = 0;
 
             for (let i = 0; i < this.selected.length; i++) {
@@ -449,8 +459,35 @@ export default {
         },
         Reset() {
             this.selected = JSON.parse(JSON.stringify(selection));
+            this.states = {0:true,1:true,2:true,3:true,4:true,};
         },
+        validate() {
+            for(let i=0; i < this.selected.length; i++) {
+                if(this.selected[i]==null) {
+                    this.$set(this.states,i,false);
+                    document.getElementById('field'+i).scrollIntoView();
+                    return false;
+                }
+                else {
+                    this.$set(this.states,i,true);
+                }
+            }
+            return true;
+        }
     },
+    watch: {
+        selected: {
+            handler(n) {
+                for(let i=0; i < n.length; i++) {
+                    if(n[i]!=null) {
+                        this.$set(this.states,i,true);
+                        
+                    }
+                }
+            },
+            deep:true
+        }
+    }
 };
 </script>
 
@@ -471,5 +508,6 @@ select option:checked {
         width: 100%;
     }
 }
+html { scroll-behavior: smooth; } 
 </style>
 
