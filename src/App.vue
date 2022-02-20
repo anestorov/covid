@@ -12,7 +12,7 @@
         >
         </b-jumbotron>
 
-        <b-container class="mt-3">
+        <b-container fluid class="mt-3">
             <b-card>
                 <b-form @submit="Calculate">
                     <b-row class="my-1">
@@ -26,6 +26,7 @@
                                     v-model="selected[0]"
                                     :options="[{value:0, text:'5 - 11г.'}, {value:1, text: '12 - 17г.'}, {value:2, text:'Над 18г.'}]"
                                 ></b-form-radio-group>
+                                <b-form-invalid-feedback :state="selected[0] != null">Изберете опция</b-form-invalid-feedback>
                             </b-form-group>
                         </b-col>
                     </b-row>
@@ -40,6 +41,7 @@
                                     v-model="selected[1]"
                                     :options="[{value:0, text:'Мъж'}, {value:1, text:'Жена'}]"
                                 ></b-form-radio-group>
+                                <b-form-invalid-feedback :state="selected[1] != null">Изберете опция</b-form-invalid-feedback>
                             </b-form-group>
                         </b-col>
                     </b-row>
@@ -68,6 +70,7 @@
                                     v-model="selected[3]"
                                     :options="[{value:0, text:'<18.5'}, {value:1, text:'18.5 - 30'}, {value:2, text:'>30'}]"
                                 ></b-form-radio-group>
+                                <b-form-invalid-feedback :state="selected[3] != null">Изберете опция</b-form-invalid-feedback>
                             </b-form-group>
                         </b-col>
                     </b-row>
@@ -446,19 +449,27 @@ export default {
         },
         Reset() {
             this.selected = JSON.parse(JSON.stringify(selection));
-        }
+        },
     },
 };
 </script>
 
-<style scoped>
+<style>
 label {
     font-weight: bold;
 }
 .jumbotron {
     background: url("assets/bg.png") no-repeat center center;
-    background-size: 100% 140%;
+    background-size: 100% 100%;
     max-height: 150px;
+}
+select option:checked {
+    background: #c0ecfa;
+}
+@media (max-width: 576px) {
+    .custom-radio {
+        width: 100%;
+    }
 }
 </style>
 
