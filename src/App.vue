@@ -191,7 +191,7 @@
 
                     <b-row class="my-1">
                         <b-col sm="4">
-                            <label>Активна химиотерапия: <b-icon icon="info-square-fill" variant="info" @click="modalChem=true" style="cursor:pointer;"></b-icon></label>
+                            <label>Активна химиотерапия: <b-icon icon="info-circle-fill" variant="notice" @click="modalChem=true"></b-icon></label>
                         </b-col>
                         <b-col sm="8">
                             <b-form-group>
@@ -233,7 +233,7 @@
 
                     <b-row class="my-1">
                         <b-col sm="4">
-                            <label>Хронична чернодробна недостатъчност: <b-icon icon="info-square-fill" variant="info" @click="modalLiver=true" style="cursor:pointer;"></b-icon></label>
+                            <label>Хронична чернодробна недостатъчност: <b-icon icon="info-circle-fill" variant="notice" @click="modalLiver=true"></b-icon></label>
                         </b-col>
                         <b-col sm="8">
                             <b-form-select
@@ -302,7 +302,7 @@
 
                     <b-row class="my-1">
                         <b-col sm="4">
-                            <label>Алергии: <b-icon icon="info-square-fill" variant="info" @click="modalAllergies=true" style="cursor:pointer;"></b-icon></label>
+                            <label>Алергии: <b-icon icon="info-circle-fill" variant="notice" @click="modalAllergies=true"></b-icon></label>
                         </b-col>
                         <b-col sm="8">
                             <b-form-select
@@ -323,19 +323,33 @@
             </b-card>
 
             <b-card class="mt-5">
-                <b-card-title>Библиография</b-card-title>
-                <b-card-text>
-                    <ol>
-                        <li><a href="https://coronavirus.bg/bg/vaccinations/" target="_blank">https://coronavirus.bg/bg/vaccinations/</a></li>
-                        <li><a href="https://www.cdc.gov/vaccines/covid-19/" target="_blank">https://www.cdc.gov/vaccines/covid-19/</a></li>
-                        <li><a href="https://esmo.org/covid-19-and-cancer/covid-19-vaccination" target="_blank">https://esmo.org/covid-19-and-cancer/covid-19-vaccination</a></li>
-                        <li><a href="https://eular.org/eular_sars_cov_2_vaccination_rmd_patients.cfm" target="_blank">https://eular.org/eular_sars_cov_2_vaccination_rmd_patients.cfm</a></li>
-                        <li><a href="https://www.escardio.org/Education/COVID-19-and-Cardiology" target="_blank">https://escardio.org/Education/COVID-19-and-Cardiology</a></li>
-                        <li><a href="https://n.neurology.org/content/97/15/720" target="_blank">https://n.neurology.org/content/97/15/720</a></li>
-                        <li><a href="https://ejog.org/article/S0301-2115(21)00244-X/fulltext" target="_blank">https://ejog.org/article/S0301-2115(21)00244-X/fulltext</a></li>
-                    </ol>
-                </b-card-text>
+                <b-row>
+                    <b-col cols="sm-8">
+                        <b-card-title>Библиография</b-card-title>
+                        <b-card-text>
+                            <ol>
+                                <li><a href="https://coronavirus.bg/bg/vaccinations/" target="_blank">https://coronavirus.bg/bg/vaccinations/</a></li>
+                                <li><a href="https://www.cdc.gov/vaccines/covid-19/" target="_blank">https://www.cdc.gov/vaccines/covid-19/</a></li>
+                                <li><a href="https://esmo.org/covid-19-and-cancer/covid-19-vaccination" target="_blank">https://esmo.org/covid-19-and-cancer/covid-19-vaccination</a></li>
+                                <li><a href="https://eular.org/eular_sars_cov_2_vaccination_rmd_patients.cfm" target="_blank">https://eular.org/eular_sars_cov_2_vaccination_rmd_patients.cfm</a></li>
+                                <li><a href="https://www.escardio.org/Education/COVID-19-and-Cardiology" target="_blank">https://escardio.org/Education/COVID-19-and-Cardiology</a></li>
+                                <li><a href="https://n.neurology.org/content/97/15/720" target="_blank">https://n.neurology.org/content/97/15/720</a></li>
+                                <li><a href="https://ejog.org/article/S0301-2115(21)00244-X/fulltext" target="_blank">https://ejog.org/article/S0301-2115(21)00244-X/fulltext</a></li>
+                            </ol>
+                        </b-card-text>
+                    </b-col>
+
+                    <b-col cols="sm-4">
+                        <div >
+                            <a href="https://blsbg.com/" target="_blank"><b-img :src="require('./assets/logo-bma.png')" class="logo"></b-img></a>
+                        </div>
+                        <div>
+                            <a href="https://creativengine.tech/" target="_blank"><b-img :src="require('./assets/logo-ce.jpg')" class="logo"></b-img></a>
+                        </div>
+                    </b-col>
+                </b-row>
             </b-card>
+                
 
             <b-card class="mt-2 mb-2" bg-variant="info">
                 <b-card-text class="text-center text-white">
@@ -449,7 +463,7 @@ export default {
             selected: JSON.parse(JSON.stringify(selection)),
             map: {
                 //question no: {selection: outcome ...}
-                0: { 0: 24, 1: 23, 2: 0 },
+                0: { 0: 24, 1: 15, 2: 0 },
                 1: { 0: 0, 1: 0 },
                 2: { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0 },
                 3: { 0: 0, 1: 0, 2: 0 },
@@ -477,10 +491,10 @@ export default {
             outcomes: {
                 0: "Лицето може да бъде ваксинирано, с която и да е oдобрена от ИАЛ ваксина, следвайки стандартните ваксинационни срокове.",
                 10: "Препоръчително е лицето да бъде ваксинирано с mRNA ваксина, следвайки стандартните ваксинационни срокове.",
+                15: "Препоръчително е лицето да бъде ваксинирано с Comirnaty (30μg/доза), следвайки стандартните ваксинационни срокове.",
                 20: "Препоръчително е лицето да бъде ваксинирано с mRNA ваксина, включваща и трета доза, поставена 28 дни след втората ± четвърта доза, поставена до 6 месеца след третата (при умерен и тежък имунен дефицит).",
                 21: "Препоръчително е лицето да бъде ваксинирано с mRNA ваксина, включваща и трета доза, поставена 28 дни след втората ± четвърта доза, поставена до 6 месеца след третата (при умерен и тежък имунен дефицит). *Ваксинацията при пациенти с АВРЗ трябва да се извърши, независимо дали пациентът е прекарал COVID-19.",
                 22: "Препоръчително е лицето да бъде ваксинирано с mRNA ваксина, включваща и трета доза, поставена 28 дни след втората ± четвърта доза, поставена до 6 месеца след третата (при умерен и тежък имунен дефицит). *Идеалният момнет за ваксинация е когато заболяването е в ремисия, но тя трябва да се извърши, независимо от активността на заболяването, особено при високо-рискови пациенти, без значение дали пациентът е прекарал COVID-19.",
-                23: "Препоръчително е лицето да бъде ваксинирано с Comirnaty (30μg/доза), следвайки стандартните ваксинационни срокове.",
                 24: "Препоръчително е лицето да бъде ваксинирано с Comirnaty (10μg/доза), следвайки стандартните ваксинационни срокове.",
                 30: "Лицето може да бъде ваксинирано след консултация и съгласие от алерголог; активно наблюдение до 30 минути след ваксинацията.",
                 40: "За момента НЕ СЕ препоръчва ваксинация с ваксината, на която съставки са показали алергична реакция при пациента след първото ѝ прилагане. Препоръчва се консултация с алерголог и преценка за риск/полза от ваксинация.",
@@ -555,11 +569,12 @@ export default {
 label {
     font-weight: bold;
 }
-.jumbotron {
-    background: url("assets/bg.png") no-repeat center center;
-    background-size: 100% 100%;
-    max-height: 300px;
-    height: 300px;
+select {
+    -webkit-appearance: menulist!important;
+    -moz-appearance: menulist!important;
+    -ms-appearance: menulist!important;
+    -o-appearance: menulist!important;
+    appearance: menulist!important;
 }
 select option:checked {
     background: #c0ecfa;
@@ -569,7 +584,16 @@ select option:checked {
         width: 100%;
     }
 }
-html { scroll-behavior: smooth; } 
+html { scroll-behavior: smooth; }
+.text-notice {
+    color: #ff8900;
+    width: 1.4em;
+    height: 1.4em;
+    cursor: pointer;
+}
+.logo{
+    max-width: 80%;
+}
 .my-1 {
     padding-bottom: 15px;
 }
